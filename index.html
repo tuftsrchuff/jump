@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        wordsLeft = true;
+
+        function jump(){
+            if(wordsLeft){
+                document.getElementById("jump").value = "<JUMP";
+                let letters = document.getElementById("left").value;
+                document.getElementById("right").value = letters;
+                document.getElementById("left").value = "";
+                document.getElementById("left").readOnly = true;
+                document.getElementById("right").readOnly = false;
+                wordsLeft = false;
+            } else {
+                document.getElementById("jump").value = "JUMP>";
+                let letters = document.getElementById("right").value;
+                document.getElementById("left").value = letters;
+                document.getElementById("right").value = "";
+                document.getElementById("right").readOnly = true;
+                document.getElementById("left").readOnly = false;
+                wordsLeft = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class = "container">
+        <input type="text" id="left">
+        <input type="button" value="JUMP>" id = "jump" onclick="jump()"/>
+        <input type="text" readonly id="right">
+    </div>
+</body>
+</html>
